@@ -96,6 +96,10 @@
                         @csrf
                         <button>삭제</button>
                     </form>
+                    <form action="/Estimate/{{$item->id}}" method="POST">
+                        @csrf
+                        <button>견적서 작성</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
@@ -212,7 +216,6 @@
 
     table button {
         display: inline;
-        width: 50%;
     }
 
     button {

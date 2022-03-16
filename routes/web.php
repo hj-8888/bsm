@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Business;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstimateController;
 use App\Http\Controllers\OrderBookController;
@@ -135,6 +136,13 @@ Route::put('/business', 'BusinessController@update');
 Route::delete('/business/{business}', 'BusinessController@destroy');
 
 Route::get('/', 'MainController@index')->name('main');
+
+Route::post('/Estimate/{id}', function ($id){
+    $Estimates = null;
+    $business = Business::find($id);
+
+    return view('Estimate.EstimatePost', ['Estimate' => $business, 'items' => [], 'total' => [], 'tax_total' => [], 'temp' => []]);
+});
 
 // 현준
 
