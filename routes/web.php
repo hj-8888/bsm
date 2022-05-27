@@ -13,7 +13,6 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\RepresentativeController;
 use App\Http\Controllers\AuthorityController;
 
-// 채연
 Route::get('/Estimate', [EstimateController::class, 'Viewer']);
 
 Route::get('/EstimateSearch1/{search1}', function ($search1) {
@@ -53,7 +52,6 @@ Route::post('/OrderBook/{orderbook}', [OrderBookController::class, 'update']);
 Route::delete('/OrderBook/{orderbook}', [OrderBookController::class, 'destroy']);
 Route::get('/OrderBook/{orderbook}', [OrderBookController::class, 'show']);
 
-// 기범
 Route::get('/representative', [RepresentativeController::class, 'Viewer'])->name('representative');
 
 Route::get('/RepresentativeSearch1/{search1}', function ($search1) {
@@ -123,7 +121,6 @@ Route::get('/AuthoritySearch4/{search4}', function ($search4) {
 });
 Route::POST('/authority/checked', [AuthorityController::class, 'store']);
 
-// 준재
 Route::get('/pipeline', 'PipeController@index')->name('pipeline');
 Route::post('/pipeline', 'PipeController@store')->name('pipeline');
 Route::put('/pipeline', 'PipeController@update')->name('pipeline');
@@ -136,6 +133,7 @@ Route::put('/business', 'BusinessController@update');
 Route::delete('/business/{business}', 'BusinessController@destroy');
 
 Route::get('/', 'MainController@index')->name('main');
+Route::get('/main', 'MainController@index')->name('main');
 
 Route::post('/Estimate/{id}', function ($id){
     $Estimates = null;
@@ -143,8 +141,6 @@ Route::post('/Estimate/{id}', function ($id){
 
     return view('Estimate.EstimatePost', ['Estimate' => $business, 'items' => [], 'total' => [], 'tax_total' => [], 'temp' => []]);
 });
-
-// 현준
 
 // 고객관리
 Route::get('/customer_management',[CustomerManagementController::class, 'index']);
